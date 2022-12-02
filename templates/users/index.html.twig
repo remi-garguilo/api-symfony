@@ -1,0 +1,43 @@
+{% extends 'users.html.twig' %}
+
+{% block title %}Hello {{app.user.firstname}} {{app.user.lastname}}{% endblock %}
+
+{% block body %}
+
+<div class="d-flex flex-column h-100">
+    <div class="flex-shrink-0">
+        <div class="container px-4 py-5 mt-5">
+            {% for message in app.flashes('message') %}
+                <div class="alert alert-success" role="alert">
+                    {{message}}
+                </div>
+            {% endfor %}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title">Hi {{app.user.firstname}} {{app.user.lastname}} !</h3>
+                    <h6 class="card-subtitle mb-2 text-muted">This is your information :</h6>
+                    <div class="d-flex">Email: {{app.user.email}}</div>
+                    <div>
+                        Firstname: {{app.user.firstname}}
+                    </div>
+                    <div>
+                        Firstname: {{app.user.lastname}}
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Vos annonces
+                </div>
+                {% for annonces in app.user.annonces %}
+                <div class="card-body">
+                    <h5 class="card-title"> Titre de l'article : {{annonces.title}}</h5>
+                    <p class="card-text">Contenu de l'article : {{annonces.content}}</p>
+                    <a href="#" class="btn btn-primary">Voir l'article</a>
+                </div>
+               {% endfor %} 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

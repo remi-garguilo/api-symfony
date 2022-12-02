@@ -1,0 +1,16 @@
+{% extends 'users.html.twig' %}
+
+{% block title %}Modification profil {{app.user.firstname}}{{app.user.lastname}}{% endblock %}
+
+{% block body %}
+
+<div class="d-flex flex-column h-100">
+    <div class="flex-shrink-0">
+        <div class="container px-4 py-5 mt-5">
+            <div class="form-floating">
+                {{ form(form) }}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
